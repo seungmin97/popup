@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        function getCookie(name) {
+            var cookie = document.cookie;
+            if (document.cookie != "") {
+                var cookie_array = cookie.split("; ");
+                for ( var index in cookie_array) {
+                    var cookie_name = cookie_array[index].split("=");
+                    if (cookie_name[0] == "popupYN") {
+                        return cookie_name[1];
+                    }
+                }
+            }
+            return ;
+        }
+        function openPopup(url) {
+            var cookieCheck = getCookie("popupYN");
+            if (cookieCheck != "N")
+                window.open(url, '', 'width=50,height=50,left=100,top=100 toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')
+        }
+    </script>
+</head>
+
+<body onload="javascript:openPopup('popup.html')">
+하이
+</body>
+</html>
+
+<!--         #pop{
+            width: 300px; height: 400px;
+            position: absolute; top: 10px; left: 100px; text-align: center;
+            border: 2px solid #000000;
+        }-->
